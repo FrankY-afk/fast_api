@@ -20,11 +20,19 @@ def insert_patient_id(name:str,age:int):
 
 insert_patient_id('chirag',21)
 
-from pydantic import BaseModel
+from pydantic import BaseModel,EmailStr,AnyURL,Field
+from typing import list,Optional
 
 class patient(BaseModel):
     name:str
-    age:int
+    email:EmailStr
+    linkedin_url:AnyURL
+    age:int =Field(gt=0,lt=120)
+    weight:float=Field(gt=0)
+    married:bool
+    allergies:optional[list[str]]=None 
+    contact_detail:dict[str,str]
 
-patient_inf0={'name':'Chirag','age':21}
+
+patient_inf0={'name':'Chirag','age':21,'weight':62.0,'married':False,'allergies':'dust','contact_details':{'email':'abc@gmail.com','phone':'1234567'}}
 patient1=patient(**patient_inf0)
