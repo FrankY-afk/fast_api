@@ -21,10 +21,10 @@ def insert_patient_id(name:str,age:int):
 insert_patient_id('chirag',21)
 
 from pydantic import BaseModel,EmailStr,AnyURL,Field
-from typing import list,Optional
+from typing import list,Optional,Annotated
 
 class patient(BaseModel):
-    name:str
+    name:Annotated[str,Field(max_length=50)]
     email:EmailStr
     linkedin_url:AnyURL
     age:int =Field(gt=0,lt=120)
