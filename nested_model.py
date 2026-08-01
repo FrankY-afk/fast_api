@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic_demo import BaseModel
 
 class address(BaseModel):
     city:str

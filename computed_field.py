@@ -1,4 +1,4 @@
-from pydantic import BaseModel,EmailStr,computed_field
+from pydantic_demo import BaseModel,EmailStr,computed_field
 from typing import list,Dict
 
 class patient(BaseModel):
